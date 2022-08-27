@@ -13,7 +13,7 @@ public class L39_M_CombinationsSum {
     private static List<List<Integer>> result = new LinkedList<>();
 
     public static void main(String[] args) {
-        int[] candidates = new int[]{2, 3, 5};
+        int[] candidates = new int[]{2, 3, 4};
         int target = 8;
         combinationSum(candidates, target);
 //        System.out.println(8%2);
@@ -21,28 +21,27 @@ public class L39_M_CombinationsSum {
     }
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-        backtracking(0, 0, candidates, target, new LinkedList<Integer>());
+        backtracking(0, 0, 0, candidates, target, new LinkedList<Integer>());
         return result;
     }
 
-    public static void backtracking(int start, int now, int[] candidates, int target, LinkedList<Integer> list) {
-        if (now == target) {
-            result.add(new LinkedList<>(list));
-            return;
+    public static void backtracking(int start, int now, int times, int[] candidates, int target, LinkedList<Integer> list) {
+        if (now < target) {
+            now += candidates[start];
+            backtracking(start, now, times, candidates, target, list);
         } else if (now > target) {
-            now -= candidates[start + 1];
+            for (int i = 0; i < 2; i++) {
+                now -= candidates[start - i];
+            }
             list.removeLast();
-        }
-
-        for (int i = start; i < candidates.length; i++) {
-            list.add(candidates[i]);
-            now += candidates[i];
-            backtracking(start, now, candidates, target, list);
+            backtracking(start, now, times, candidates, target, list);
+        } else {
+            result.add(new LinkedList<>(list));
             list.removeLast();
+            now -= candidates[start];
+            start++;
+            backtracking(start, now, times, candidates, target, list);
         }
-        list.removeLast();
-        backtracking(start + 1, now, candidates, target, list);
-
     }
 
     public static void backtrackingMy(int start, int n, int k, LinkedList<Integer> list) {
