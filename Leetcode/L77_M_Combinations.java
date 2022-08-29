@@ -18,6 +18,7 @@ public class L77_M_Combinations {
     }
 
     public static List<List<Integer>> combine(int n, int k) {
+        result = new LinkedList<>();
         backtrackingMy(1, n, k, new LinkedList<>());
         return result;
     }
