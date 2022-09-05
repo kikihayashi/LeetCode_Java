@@ -1,7 +1,5 @@
 package LeetCode;
 
-import java.util.Arrays;
-
 public class L209_M_MinimumSizeSubarraySum {
 
     /**

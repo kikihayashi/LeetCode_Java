@@ -1,7 +1,5 @@
 package LeetCode;
 
-import java.util.Stack;
-
 public class L206_E_ReverseLinkedList {
 
     /**

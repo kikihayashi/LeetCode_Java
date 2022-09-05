@@ -1,6 +1,4 @@
-package Leetcode;
-
-import java.util.Stack;
+package LeetCode;
 
 /**
  * https://leetcode.com/problems/trim-a-binary-search-tree/

@@ -1,9 +1,5 @@
 package LeetCode;
 
-import com.sun.source.tree.Tree;
-
-import java.util.Stack;
-
 public class L226_E_InvertBinaryTree {
 
     /**

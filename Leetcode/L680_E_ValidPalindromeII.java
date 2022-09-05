@@ -1,7 +1,5 @@
 package LeetCode;
 
-import java.util.*;
-
 public class L680_E_ValidPalindromeII {
 
     /**

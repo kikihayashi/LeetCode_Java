@@ -1,6 +1,4 @@
-package Leetcode;
-
-import com.sun.source.tree.Tree;
+package LeetCode;
 
 /**
  * https://leetcode.com/problems/insert-into-a-binary-search-tree/

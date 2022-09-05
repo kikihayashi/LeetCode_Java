@@ -1,10 +1,4 @@
-package Leetcode;
-
-import com.sun.source.tree.Tree;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+package LeetCode;
 
 /**
  * https://leetcode.com/problems/search-in-a-binary-search-tree/

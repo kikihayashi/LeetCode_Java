@@ -1,8 +1,5 @@
 package LeetCode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class L222_M_CountCompleteTreeNodes {
 
     /**
