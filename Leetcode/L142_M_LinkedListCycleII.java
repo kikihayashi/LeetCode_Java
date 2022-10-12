@@ -1,4 +1,4 @@
-package LeetCode;
+package Leetcode;
 
 public class L142_M_LinkedListCycleII {
 

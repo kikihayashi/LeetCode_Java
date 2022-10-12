@@ -1,8 +1,6 @@
-package LeetCode;
+package Leetcode;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class L59_M_SpiralMatrixII {
 

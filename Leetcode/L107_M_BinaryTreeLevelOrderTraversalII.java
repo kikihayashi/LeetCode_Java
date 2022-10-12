@@ -1,6 +1,5 @@
-package LeetCode;
+package Leetcode;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.*;
 
 public class L107_M_BinaryTreeLevelOrderTraversalII {

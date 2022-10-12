@@ -1,10 +1,5 @@
-package LeetCode;
+package Leetcode;
 
-import com.sun.source.tree.Tree;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 import java.util.Stack;
 
 public class L572_E_SubtreeofAnotherTree {

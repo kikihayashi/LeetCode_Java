@@ -1,4 +1,4 @@
-package LeetCode;
+package Leetcode;
 
 public class L191_E_Numberof1Bits {
 

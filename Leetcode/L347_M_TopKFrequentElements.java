@@ -1,6 +1,5 @@
-package LeetCode;
+package Leetcode;
 
-import javax.naming.InsufficientResourcesException;
 import java.util.*;
 
 public class L347_M_TopKFrequentElements {

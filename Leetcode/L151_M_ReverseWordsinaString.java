@@ -1,6 +1,5 @@
-package LeetCode;
+package Leetcode;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class L151_M_ReverseWordsinaString {

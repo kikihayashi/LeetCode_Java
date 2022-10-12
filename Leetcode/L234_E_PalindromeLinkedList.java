@@ -1,8 +1,7 @@
-package LeetCode;
+package Leetcode;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 public class L234_E_PalindromeLinkedList {
 

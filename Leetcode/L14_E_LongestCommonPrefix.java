@@ -1,9 +1,4 @@
-package LeetCode;
-
-import java.security.SecureRandom;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
+package Leetcode;
 
 public class L14_E_LongestCommonPrefix {
 

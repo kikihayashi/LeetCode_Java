@@ -1,6 +1,4 @@
-package LeetCode;
-
-import java.util.Arrays;
+package Leetcode;
 
 public class L69_E_Sqrtx {
 

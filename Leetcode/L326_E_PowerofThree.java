@@ -1,4 +1,4 @@
-package LeetCode;
+package Leetcode;
 
 public class L326_E_PowerofThree {
 

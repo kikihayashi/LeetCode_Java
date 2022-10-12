@@ -1,7 +1,6 @@
-package LeetCode;
+package Leetcode;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 public class L102_M_BinaryTreeLevelOrderTraversal {
 

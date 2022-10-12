@@ -1,7 +1,6 @@
-package LeetCode;
+package Leetcode;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class L454_M_4SumII {

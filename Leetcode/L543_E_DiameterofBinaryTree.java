@@ -1,9 +1,5 @@
-package LeetCode;
+package Leetcode;
 
-import com.sun.source.tree.Tree;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 public class L543_E_DiameterofBinaryTree {

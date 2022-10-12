@@ -1,9 +1,6 @@
-package LeetCode;
+package Leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 
 public class L160_E_IntersectionofTwoLinkedLists {
 

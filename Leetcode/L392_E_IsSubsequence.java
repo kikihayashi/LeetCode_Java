@@ -1,4 +1,4 @@
-package LeetCode;
+package Leetcode;
 
 public class L392_E_IsSubsequence {
 

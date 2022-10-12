@@ -1,4 +1,4 @@
-package LeetCode;
+package Leetcode;
 
 /**
  * https://leetcode.com/problems/trim-a-binary-search-tree/
