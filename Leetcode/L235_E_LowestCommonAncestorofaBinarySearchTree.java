@@ -1,5 +1,7 @@
 package Leetcode;
 
+import java.util.Stack;
+
 /**
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */
@@ -46,11 +48,40 @@ public class L235_E_LowestCommonAncestorofaBinarySearchTree {
         node4.left = node7;
         node4.right = node8;
 
-        System.out.println(lowestCommonAncestor(node0, node1, node2).val);
+        System.out.println(lowestCommonAncestor(node0, node3, node8).val);
     }
 
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return recursiveMethod(root, p, q);
+        return recursiveM(root, p, q);
+    }
+
+    private static TreeNode recursiveM(TreeNode root, TreeNode p, TreeNode q) {
+
+
+        TreeNode subRoot = getSubRoot1(root, p);
+        return null;
+
+    }
+
+    private static TreeNode getSubRoot1(TreeNode root, TreeNode subRoot) {
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode currentNode = stack.pop();
+            if (currentNode.left != null) {
+                if (currentNode.left == subRoot) {
+                    return currentNode;
+                }
+                stack.push(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                if (currentNode.right == subRoot) {
+                    return currentNode;
+                }
+                stack.push(currentNode.right);
+            }
+        }
+        return root;
     }
 
     //p < q

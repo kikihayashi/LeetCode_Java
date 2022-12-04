@@ -7,8 +7,8 @@ public class L392_E_IsSubsequence {
      */
 
     public static void main(String[] args) {
-//        String test1 = "abc";
-//        String test2 = "ahbgdc";
+        String test1 = "abc";
+        String test2 = "ahbgdc";
 
 //        String test1 = "";
 //        String test2 = "ahbgdc";
@@ -19,14 +19,31 @@ public class L392_E_IsSubsequence {
 //        String test1 = "acb";
 //        String test2 = "ahbgdc";
 
-        String test1 = "axc";
-        String test2 = "ahbgdc";
+//        String test1 = "axc";
+//        String test2 = "ahbgdc";
 
         System.out.println(isSubsequence(test1, test2));
     }
 
-    //1 ms、38.7 MB
     public static boolean isSubsequence(String s, String t) {
+        if (s.length() == 0) {
+            return true;
+        }
+        int index = 0;
+        for (char c : t.toCharArray()) {
+            if (c == s.charAt(index)) {
+                index++;
+            }
+            if (index == s.length()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    //1 ms、38.7 MB
+    public static boolean isSubsequence3(String s, String t) {
         if (s.equals("")) {
             return true;
         }

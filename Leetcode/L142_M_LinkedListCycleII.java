@@ -24,7 +24,7 @@ public class L142_M_LinkedListCycleII {
         node1a.next = node2a;
         node2a.next = node1a;
 
-        System.out.println(detectCycle2(node1a).val);
+//        System.out.println(detectCycle2(node1a).val);
 
         ListNode node1 = new ListNode(3);
         ListNode node2 = new ListNode(2);
@@ -36,10 +36,10 @@ public class L142_M_LinkedListCycleII {
         node3.next = node4;
         node4.next = node2;
 
-        System.out.println(detectCycle2(node1).val);
+        System.out.println(detectCycle(node1).val);
     }
 
-    public static ListNode detectCycle2(ListNode head) {
+    public static ListNode detectCycle0(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
 

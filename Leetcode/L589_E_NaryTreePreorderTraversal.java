@@ -29,25 +29,6 @@ public class L589_E_NaryTreePreorderTraversal {
         }
     }
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public static void main(String[] args) {
 //        TreeNode test = new TreeNode(3, new TreeNode(1, null, new TreeNode(2)), null);
 //        TreeNode test = new TreeNode(4, new TreeNode(1, new TreeNode(2, new TreeNode(3),null), null), null);
@@ -88,15 +69,46 @@ public class L589_E_NaryTreePreorderTraversal {
         /**
          *  iterativeMethod
          */
-//        iterativeTemplate(root);
+        iterativeM(root);
 
         /**
          *  recursiveMethod
          */
-        recursiveTemplate(root);
+//        recursiveM(root);
         return list;
 
     }
+
+    //遞迴統一寫法
+    private static void recursiveM(Node root) {
+        list.add(root.val);
+        if (root == null) {
+            return;
+        }
+        if (root.children != null) {
+            for (int i = 0; i < root.children.size(); i++) {
+                recursiveM(root.children.get(i));
+            }
+        }
+    }
+
+    //跌代統一寫法
+    private static void iterativeM(Node root) {
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node currentNode = stack.pop();
+            list.add(currentNode.val);
+            if (currentNode.children != null) {
+                for (int i = currentNode.children.size() - 1; i >= 0; i--) {
+                    Node node = currentNode.children.get(i);
+                    stack.push(node);
+                }
+            }
+
+        }
+    }
+
 
     //跌代統一寫法
     private static void iterativeTemplate(Node root) {
@@ -120,18 +132,6 @@ public class L589_E_NaryTreePreorderTraversal {
         return;
     }
 
-    //遞迴統一寫法
-    private static void recursiveTemplate(Node root) {
-        if (root == null) {
-            return;
-        }
-        list.add(root.val);
-        if (root.children != null) {
-            for (int i = 0; i < root.children.size(); i++) {
-                recursiveTemplate(root.children.get(i));
-            }
-        }
-    }
 
     /**
      * 遞迴、跌代統一寫法-----------------------------------------------------------------

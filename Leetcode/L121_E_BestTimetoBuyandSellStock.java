@@ -7,15 +7,18 @@ public class L121_E_BestTimetoBuyandSellStock {
 
     public static void main(String[] args) {
 
-
 //        int[] test = new int[]{7, 1, 5, 3, 6, 4};
-        int[] test = new int[]{1, 2};
+//        int[] test = new int[]{1, 2};
 //        int[] test = new int[]{7, 6, 4, 3, 1};
+//        int[] test = new int[]{2, 4, 1};
+//        int[] test = new int[]{2, 1, 2, 0, 1};
+//        int[] test = new int[]{3, 2, 6, 5, 0, 3};
+        int[] test = new int[]{7, 1, 5, 3, 6, 4};//5
 
-        System.out.println(maxProfit2(test));
+        System.out.println(maxProfit(test));
     }
 
-    public static int maxProfit2(int[] prices) {
+    public static int maxProfit(int[] prices) {
         int profit = 0;
         int buy = prices[0];
 
@@ -23,13 +26,13 @@ public class L121_E_BestTimetoBuyandSellStock {
             if (prices[sellDay] < buy) {
                 buy = prices[sellDay];
             } else {
-                profit =  Math.max(profit, prices[sellDay] - buy);
+                profit = Math.max(profit, prices[sellDay] - buy);
             }
         }
         return profit;
     }
 
-    public static int maxProfit(int[] prices) {
+    public static int maxProfit3(int[] prices) {
         int profit = 0;
         int sell = prices[prices.length - 1];
 

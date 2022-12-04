@@ -2,6 +2,7 @@ package Leetcode;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class L1_E_TwoSum {
 
@@ -17,15 +18,28 @@ public class L1_E_TwoSum {
     }
 
     public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        return null;
+    }
+
+
+    public static int[] twoSum0(int[] nums, int target) {
         if (nums.length == 2) {
             return new int[]{0, 1};
         }
         HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target - nums[i])) {
                 return new int[]{i, map.get(target - nums[i])};
             }
-            map.put(nums[i],i);
+            map.put(nums[i], i);
         }
         return new int[2];
     }

@@ -34,13 +34,13 @@ public class L98_M_ValidateBinarySearchTree {
 
 //        TreeNode test = new TreeNode(0, new TreeNode(-1), null);//true
 
-//        TreeNode test = new TreeNode(3,
-//                new TreeNode(1, new TreeNode(0), new TreeNode(2)),
-//                new TreeNode(5, new TreeNode(4), new TreeNode(6)));//true
+        TreeNode test = new TreeNode(3,
+                new TreeNode(1, new TreeNode(0), new TreeNode(2)),
+                new TreeNode(5, new TreeNode(4), new TreeNode(6)));//true
 
-        TreeNode test = new TreeNode(5,
-                new TreeNode(4),
-                new TreeNode(6, new TreeNode(3), new TreeNode(7)));//false
+//        TreeNode test = new TreeNode(5,
+//                new TreeNode(4),
+//                new TreeNode(6, new TreeNode(3), new TreeNode(7)));//false
 
 //        TreeNode test = new TreeNode(5,
 //                new TreeNode(1),
@@ -63,8 +63,19 @@ public class L98_M_ValidateBinarySearchTree {
         /**
          * recursiveMethod
          */
-        return recursiveMethod(root);
+        return recursiveM(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
+
+    private static boolean recursiveM(TreeNode root, long min, long max) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val <= min || root.val >= max) {
+            return false;
+        }
+        return recursiveM(root.left, min, root.val) && recursiveM(root.right, root.val, max);
+    }
+
 
     private static boolean iterativeMethod(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();

@@ -24,18 +24,53 @@ public class L206_E_ReverseLinkedList {
     }
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(5, new ListNode(4));
-        ListNode l2 = new ListNode(4, new ListNode(3));
-        ListNode l3 = new ListNode(3, new ListNode(2));
-        ListNode l4 = new ListNode(2, new ListNode(1));
+        ListNode l1 = new ListNode(5);
+        ListNode l2 = new ListNode(4);
+        ListNode l3 = new ListNode(3);
+        ListNode l4 = new ListNode(2);
+        ListNode l5 = new ListNode(1);
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        l4.next = l5;
 
-        System.out.println(reverseList(l1).val);
-        System.out.println(reverseList(l2).next.val);
-        System.out.println(reverseList(l3).next.next.val);
-        System.out.println(reverseList(l4).next.next.next.val);
+        ListNode result = reverseList(l1);
+//        ListNode result = reverseList2(l1);
+
+        System.out.println(result.val);
+        System.out.println(result.next.val);
+        System.out.println(result.next.next.val);
     }
 
     public static ListNode reverseList(ListNode head) {
+//        return recursiveM(head, null);
+        return iterativeM(head);
+    }
+
+    private static ListNode recursiveM(ListNode currentNode, ListNode prevNode) {
+        if (currentNode == null) {
+            return prevNode;
+        }
+        ListNode tempNode = currentNode;
+        currentNode = currentNode.next;
+        tempNode.next = prevNode;
+        prevNode = tempNode;
+        return recursiveM(currentNode, prevNode);
+    }
+
+    private static ListNode iterativeM(ListNode currentNode) {
+        ListNode prevNode = null;
+        while (currentNode != null) {
+            ListNode tempNode = currentNode;
+            currentNode = currentNode.next;
+            tempNode.next = prevNode;
+            prevNode = tempNode;
+        }
+        return prevNode;
+    }
+
+
+    public static ListNode reverseList2(ListNode head) {
         /**
          *  iterativeMethod
          */

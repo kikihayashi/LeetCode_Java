@@ -59,9 +59,24 @@ public class L102_M_BinaryTreeLevelOrderTraversal {
          * recursiveMethod
          * */
 
-        recursiveMethod(root, 0);
+        recursiveM(root, 0);
         return resultList;
     }
+
+    private static void recursiveM(TreeNode root, int level) {
+        if (root == null) {
+            return;
+        }
+        List<Integer> list = new LinkedList<>();
+        if (level == resultList.size()) {
+            resultList.add(list);
+        }
+        resultList.get(level).add(root.val);
+        recursiveM(root.left, level + 1);
+        recursiveM(root.right, level + 1);
+
+    }
+
 
     //別人寫的
     private static void recursiveMethod(TreeNode root, int level) {
@@ -93,13 +108,13 @@ public class L102_M_BinaryTreeLevelOrderTraversal {
             int size = queue.size();
             while (size > 0) {
                 TreeNode currentNode = queue.poll();
+                levelList.add(currentNode.val);
                 if (currentNode.left != null) {
                     queue.offer(currentNode.left);
                 }
                 if (currentNode.right != null) {
                     queue.offer(currentNode.right);
                 }
-                levelList.add(currentNode.val);
                 size--;
             }
             resultList.add(levelList);
@@ -120,13 +135,13 @@ public class L102_M_BinaryTreeLevelOrderTraversal {
             List<Integer> levelList = new LinkedList<>();
             while (queue.peek() != null) {
                 TreeNode currentNode = queue.poll();
+                levelList.add(currentNode.val);
                 if (currentNode.left != null) {
                     queue.offer(currentNode.left);
                 }
                 if (currentNode.right != null) {
                     queue.offer(currentNode.right);
                 }
-                levelList.add(currentNode.val);
             }
             resultList.add(levelList);
             queue.poll();
