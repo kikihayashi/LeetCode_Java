@@ -18,7 +18,7 @@ public class L13_E_RomantoInteger {
     }
 
     //('I', 'V', 'X', 'L', 'C', 'D', 'M')
-    public static HashMap<Character, Integer> map = new HashMap<>() {
+    public static HashMap<Character, Integer> map = new HashMap() {
         {
             put('I', 1);
             put('V', 5);

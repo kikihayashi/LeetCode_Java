@@ -1,15 +1,12 @@
-package Leetcode;
+package LeetCode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
- * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+ * https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
  */
 
-public class L105_M_ConstructBinaryTreefromPreorderandInorderTraversal {
+public class L106_M_ConstructBinaryTreefromInorderandPostorderTraversal {
 
     static class TreeNode {
         int val;
@@ -40,51 +37,54 @@ public class L105_M_ConstructBinaryTreefromPreorderandInorderTraversal {
 //        int[] test1 = new int[]{1, 2};
 //        int[] test2 = new int[]{2, 1};
 
-        int[] test1 = new int[]{0, 1, 3, 6, 7, 4, 2, 5, 8, 9};
-        int[] test2 = new int[]{6, 3, 7, 1, 4, 0, 2, 8, 5, 9};
+//        int[] test1 = new int[]{6, 3, 7, 1, 4, 0, 2, 8, 5, 9};
+//        int[] test2 = new int[]{6, 7, 3, 4, 1, 8, 9, 5, 2, 0};
 
 //        int[] test1 = new int[]{3, 2, 1};
 //        int[] test2 = new int[]{3, 2, 1};
 
-//        int[] test1 = new int[]{1, 2, 3, 4};
-//        int[] test2 = new int[]{3, 2, 4, 1};
+        int[] test1 = new int[]{1, 2, 3, 4};
+        int[] test2 = new int[]{3, 2, 4, 1};
         System.out.println(buildTree(test1, test2));
     }
 
-    public static Map<Integer, Integer> mapIn, mapPre;
-    public static int[] inOrder, preOrder;
-    public static int indexPre;
+    public static Map<Integer, Integer> mapIn, mapPo;
+    public static int[] inOrder, postOrder;
+    public static int indexPo;
 
-    public static TreeNode buildTree(int[] preorder, int[] inorder) {
+    public static TreeNode buildTree(int[] inorder, int[] postorder) {
         inOrder = inorder;
-        preOrder = preorder;
+        postOrder = postorder;
         mapIn = new HashMap<>();
-        mapPre = new HashMap<>();
-        indexPre = 0;
+        mapPo = new HashMap<>();
+        indexPo = postorder.length - 1;
 
         List<Integer> listIn = new ArrayList<>();
-        List<Integer> listPre = new ArrayList<>();
+        List<Integer> listPo = new ArrayList<>();
 
         for (int i = 0; i < inorder.length; i++) {
             listIn.add(inorder[i]);
-            listPre.add(preorder[i]);
+            listPo.add(postorder[i]);
             mapIn.put(inorder[i], i);
-            mapPre.put(preorder[i], i);
+            mapPo.put(postorder[i], i);
         }
 
-        TreeNode temp = recursiveMethod(0, preorder.length - 1);
-//        TreeNode temp = recursiveMethod2(listPre, listIn);
+        /**
+         *  recursiveMethod
+         */
+//        TreeNode temp = recursiveMethod(0, postorder.length - 1);
+        TreeNode temp = recursiveMethod2(listIn, listPo);
         return temp;
     }
 
-    private static TreeNode recursiveMethod2(List<Integer> listPre, List<Integer> listIn) {
+    private static TreeNode recursiveMethod2(List<Integer> listIn, List<Integer> listPo) {
         if (listIn.isEmpty()) {
             return null;
         }
-        int valueMid = listPre.get(0);
+        int valueMid = listPo.get(listPo.size() - 1);
         int indexIn = listIn.indexOf(valueMid);
-        TreeNode leftNode = recursiveMethod2(listPre.subList(1, indexIn + 1), listIn.subList(0, indexIn));
-        TreeNode rightNode = recursiveMethod2(listPre.subList(indexIn + 1, listIn.size()), listIn.subList(indexIn + 1, listIn.size()));
+        TreeNode leftNode = recursiveMethod2(listIn.subList(0, indexIn), listPo.subList(0, indexIn));
+        TreeNode rightNode = recursiveMethod2(listIn.subList(indexIn + 1, listIn.size()), listPo.subList(indexIn, listIn.size() - 1));
         return new TreeNode(valueMid, leftNode, rightNode);
     }
 
@@ -93,7 +93,7 @@ public class L105_M_ConstructBinaryTreefromPreorderandInorderTraversal {
         if (left > right) {
             return null;
         }
-        int valueMid = preOrder[indexPre++];
+        int valueMid = postOrder[indexPo--];
         int indexIn = mapIn.get(valueMid);
         TreeNode leftNode = recursiveMethod(left, indexIn - 1);
         TreeNode rightNode = recursiveMethod(indexIn + 1, right);
